@@ -1,7 +1,10 @@
-# Tp1-JEE-injection-de-dependence
-## Vetsion Static
-Code main
-```java
+package pres;
+
+import dao.DaoImplV1;
+import dao.IDao;
+import metier.IMetier;
+import metier.MetierImpl;
+
 public class PresStatic {
     public static void main(String[] args) {
         IDao dao = new DaoImplV1();
@@ -9,6 +12,3 @@ public class PresStatic {
         System.out.println("RES="+metier.calcule());
     }
 }
-```
-Diagramme de classes
-![Diagramme de classes](/readme-images/DC-Static.png)
