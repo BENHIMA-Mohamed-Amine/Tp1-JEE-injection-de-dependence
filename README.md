@@ -1,5 +1,5 @@
 # Tp1-JEE-injection-de-dependence
-## 1. Vetsion Static
+## 1. Version Static
 **Code main**
 ```java
 public class PresStatic {
@@ -18,7 +18,7 @@ public class PresStatic {
 
 ![Resultat](/readme-images/resultat-static.png)
 
-## 2. Veriosn Dynamique
+## 2. Version Dynamique
 ```java
 public class PresDynamique {
     public static void main(String[] args) {
@@ -49,3 +49,22 @@ public class PresDynamique {
 **Resultat**
 
 ![Resultat](/readme-images/resultat-dynamique.png)
+
+## 3. Version Spring
+**Ajout des dependences**
+Ajouter ces dependences dans pom.xml
+![dependences](/readme-images/dependences.png)
+
+### 3.1 XML
+![xml spring file](/readme-images/xml-spring.png)
+### 3.2 Annotation
+J'ai ajouter les annotations @Service et @Reposotiry dans les classes qui conviennent,
+et pour utiliser la version DB j'ai utilier @Qualifier("dao1") dans le constucteur.
+finallement voila le code de methode main:
+```java
+public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext("dao", "metier");
+        IMetier metier = (IMetier) context.getBean("metier");
+        System.out.println("Res="+metier.calcule());
+    }
+```
